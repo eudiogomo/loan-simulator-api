@@ -13,6 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(array('middleware' => 'api'), function()
+{
+
+  Route::get('api', function () {
+      return response()->json(['message' => 'LOAN SIMULATOR API', 'status' => 'Connected']);
+  });
+
+  Route::resource('agreement', 'AgreementController');
+  Route::resource('institution', 'InstitutionController');
+  Route::resource('institutionfee', 'InstitutionFeeController');
+});
+
+Route::get('/', function () {
+    return redirect('api');
 });

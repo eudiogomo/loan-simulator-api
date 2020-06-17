@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('api', function () {
+    return response()->json(['message' => 'LOAN SIMULATOR API', 'status' => 'Connected']);
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('api');
 });

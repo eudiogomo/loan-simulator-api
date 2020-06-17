@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "04cf9054-cff4-4f50-94b4-2eb00e876b52",
+		"name": "Loan Simulator API",
+		"description": "Informações para consumir a API de Simulação de Créditos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET institution",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/institution",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"institution"
+					]
+				},
+				"description": "Rota que retornar todas as Instituições Disponíveis"
+			},
+			"response": []
+		},
+		{
+			"name": "GET agreement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/agreement",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"agreement"
+					]
+				},
+				"description": "Rota que retornar todos os Convênios Disponíveis"
+			},
+			"response": []
+		},
+		{
+			"name": "GET institutionfee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/institutionfee",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"institutionfee"
+					]
+				},
+				"description": "Rota que retornar todas Taxas por Instituições"
+			},
+			"response": []
+		},
+		{
+			"name": "POST institutionfee (Loan Simulator)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "valor_emprestimo",
+							"value": "11750",
+							"type": "text"
+						},
+						{
+							"key": "instituicoes[]",
+							"value": "BMG",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "instituicoes[]",
+							"value": "OLE",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "instituicoes[]",
+							"value": "PAN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "convenios[]",
+							"value": "INSS",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "convenios[]",
+							"value": "FEDERAL",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "convenios[]",
+							"value": "SIAPE",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parcela",
+							"value": "72",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/institutionfee",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"institutionfee"
+					]
+				},
+				"description": "Rota para realizar a Simulação de Empréstimos"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

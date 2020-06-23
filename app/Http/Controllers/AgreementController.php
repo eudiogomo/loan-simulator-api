@@ -31,7 +31,7 @@ class AgreementController extends Controller
     public function index()
     {
         try {
-            return response()->json([$this->agreement->getAll(), "status" => 200], 200);
+            return response()->json($this->agreement->getAll(), 200);
         } catch (\Exception  $e) {
             return response()->json([
                 "message" => "It was not possible to read the agreements!", 

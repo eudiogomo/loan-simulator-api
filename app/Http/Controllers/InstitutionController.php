@@ -31,7 +31,7 @@ class InstitutionController extends Controller
     public function index()
     {
         try {
-            return response()->json([$this->institution->getAll(), "status" => 200], 200);
+            return response()->json($this->institution->getAll(), 200);
         } catch (\Exception  $e) {
             return response()->json([
                 "message" => "It was not possible to read institutions!", 

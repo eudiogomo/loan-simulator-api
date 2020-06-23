@@ -48,10 +48,10 @@ class InstitutionFeeController extends Controller
         $storage = $this->institutionfee->getAll();
 
         try {
-            $loan_amount = request('valor_emprestimo');
-            $institutions = request('instituicoes');
-            $agreement = request('convenios');
-            $portion = request('parcela');
+            $loan_amount = $request->valor_emprestimo;
+            $institutions = $request->instituicoes;
+            $agreement = $request->convenios;
+            $portion = $request->parcela;
 
             foreach ($storage as &$item) {
                 if ($this->checkData($institutions, $item['instituicao'])) {
@@ -86,7 +86,7 @@ class InstitutionFeeController extends Controller
                 array_push($result[$item['instituicao']], $new_item);
             }
 
-            return response()->json([$result, "status" => 200], 200);
+            return response()->json($result, 200);
         } catch (\Exception  $e) {
             return response()->json([
                 "message" => "The information sent is invalid. Try again!", 
@@ -104,7 +104,7 @@ class InstitutionFeeController extends Controller
     private function getInstitutionFee()
     {
         try {
-            return response()->json([$this->institutionfee->getAll(), "status" => 200], 200);
+            return response()->json($this->institutionfee->getAll(), 200);
         } catch (\Exception  $e) {
             return response()->json([
                 "message" => "It was not possible to read the fees of institutions!", 
